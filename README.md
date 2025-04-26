@@ -34,7 +34,7 @@ vendor/bin/phpunit tests/[Filename]
 
 ### Contributions
 
-Pull requests are welcome! Feel free to fork this repository and suggest improvements, additional helpers, or new artisan commands.
+Feel free to fork this repository and suggest improvements, additional helpers, or new artisan commands.
 
 ### License
 
