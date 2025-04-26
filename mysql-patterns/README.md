@@ -13,13 +13,17 @@ This folder contains best practices, patterns, and examples for optimizing MySQL
 ## How to Use
 
 1. Clone the repo
-2. Configure your database credentials in `src/Database.php`
-3. Install dependencies:
+2. View, learn and modify the example files to suit your project.
+
+### Optionally
+
+3. Configure your database credentials in `src/Database.php`
+4. Install dependencies:
    ```bash
    composer install
    ```
-4. php examples/InnerJoinExample.php
-5. composer test
+5. php examples/InnerJoinExample.php
+6. composer test
 
 ## Table of Contents
 
