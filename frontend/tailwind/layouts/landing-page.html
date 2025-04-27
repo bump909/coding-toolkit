@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YourSite Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #mobile-menu {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-blue-600">YourSite</div>
+
+        <!-- Hamburger button -->
+        <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+            <svg id="hamburger" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+            </svg>
+        </button>
+
+        <!-- Navigation links -->
+        <nav class="hidden md:flex space-x-6 items-center" id="menu">
+            <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#features" class="text-gray-700 hover:text-blue-600">Features</a>
+            <a href="#pricing" class="text-gray-700 hover:text-blue-600">Pricing</a>
+            <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="max-h-0 md:hidden bg-white shadow-md px-6 overflow-hidden">
+        <div class="flex flex-col space-y-4 py-4" id="mobile-links">
+            <!-- These will be cloned dynamically -->
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow bg-gray-50">
+
+        <!-- Hero Section -->
+        <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-center px-6 py-16 max-w-6xl mx-auto">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Build stunning sites faster.</h1>
+                <p class="text-gray-600 mb-6">
+                    Kickstart your next project with ready-to-go components, flexible layouts, and pixel-perfect design.
+                </p>
+                <a href="#features" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold transition">
+                    Explore Features
+                </a>
+            </div>
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <img src="https://source.unsplash.com/600x400/?technology,website" alt="Landing illustration" class="w-full rounded-lg shadow-lg">
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="px-6 py-16 bg-white">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Features You'll Love</h2>
+                <p class="text-gray-600 mt-4">Everything you need to build modern, responsive sites quickly.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                <div class="bg-gray-100 p-8 rounded-lg shadow hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-4">Responsive Design</h3>
+                    <p class="text-gray-600">Mobile-first layouts that work beautifully on any device.</p>
+                </div>
+                <div class="bg-gray-100 p-8 rounded-lg shadow hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-4">Reusable Components</h3>
+                    <p class="text-gray-600">Pre-built sections and components to speed up development.</p>
+                </div>
+                <div class="bg-gray-100 p-8 rounded-lg shadow hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-4">Easy Customization</h3>
+                    <p class="text-gray-600">Tweak colors, layouts, and typography with Tailwind's utility classes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section id="pricing" class="px-6 py-16 bg-blue-600 text-white text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to launch your next project?</h2>
+            <p class="mb-8 text-lg">Join thousands of developers building better sites today.</p>
+            <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                Get Started Now
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 text-center text-sm py-6 mt-auto">
+        &copy; 2025 YourSite. All rights reserved.
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuBtn = document.getElementById('menu-toggle');
+        const hamburgerIcon = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = document.getElementById('menu');
+        const mobileLinksContainer = document.getElementById('mobile-links');
+
+        // Clone desktop links into mobile menu
+        Array.from(menuLinks.children).forEach(link => {
+            const clonedLink = link.cloneNode(true);
+            mobileLinksContainer.appendChild(clonedLink);
+        });
+
+        // Toggle mobile menu
+        menuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('max-h-0');
+
+            if (isOpen) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-96');
+                hamburgerIcon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        `;
+            } else {
+                mobileMenu.classList.remove('max-h-96');
+                mobileMenu.classList.add('max-h-0');
+                hamburgerIcon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+        `;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

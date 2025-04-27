@@ -11,12 +11,13 @@ A carefully crafted collection of Laravel and PHP utilities, raw MySQL patterns 
 
 - **Laravel Utilities** – Handy helpers, macros, and artisan commands. [View »](./laravel/README.md)
 - **MySQL Patterns** – Raw SQL examples showing efficient querying techniques. [View »](./mysql-patterns/README.md)
+- **Frontend** - Components, Layouts and CSS for React, Vue & Livewire. [View »](./frontend/README.md)
 - **PHP Unit Tests** – Coverage for helper functions, macros, utilities and patterns. [View »](./tests)
 
 ## How to Use
 
 - Clone the repository.
-- Drop specific files into your Laravel app where needed (e.g., Macros into App\Macros, Commands into App\Console\Commands).
+- Drop specific files into your app where needed (e.g., for Laravel: Macros into App\Macros, Commands into App\Console\Commands).
 - Register macros inside your AppServiceProvider or use the included bootstrap/macros.php autoloader.
 - Use the artisan commands like any other built-in Laravel command.
 
